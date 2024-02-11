@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: static-website
+spec:
+  selector:
+    matchLabels:
+      app: static-website
+  template:
+    metadata:
+      labels:
+        app: static-website
+    spec:
+      containers:
+      - name: static-website
+        image: nginx:alpine
+        ports:
+        - containerPort: 80
+        volumeMounts:
+          - mountPath: /usr/share/nginx/html
+            subPath: example-static-website
+            name: static-website-volume
+      volumes:
+        - name: static-website-volume
+          gitRepo:
+            repository: https://github.com/abdennour/example-static-website.git
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: static-website
+spec:
+  ports:
+    - port: 8080
+      protocol: TCP
+      targetPort: 80
+  selector:
+    app: static-website
+  sessionAffinity: None
+  type: LoadBalancer
