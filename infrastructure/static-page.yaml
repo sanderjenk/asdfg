@@ -20,7 +20,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: static-website
+  name: static-website-service
 spec:
   ports:
     - port: 8080
