@@ -6,7 +6,9 @@ spec:
   schedule: "* * * * *"
   jobTemplate:
     spec:
-      containers:
-      - name: date-printer
-        image: sanderjenk/echo-job:1.1
-      restartPolicy: Never
+      template:
+        spec:
+          containers:
+          - name: date-printer
+            image: sanderjenk/echo-job:1.1
+          restartPolicy: Never
