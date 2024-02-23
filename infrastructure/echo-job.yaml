@@ -7,6 +7,6 @@ spec:
     spec:
       containers:
       - name: date-printer
-        image: sanderjenk/echo-job
+        image: sanderjenk/echo-job:1.0
       restartPolicy: Never
   backoffLimit: 4
