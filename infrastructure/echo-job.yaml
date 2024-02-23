@@ -1,0 +1,12 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: date-printer
+spec:
+  template:
+    spec:
+      containers:
+      - name: date-printer
+        image: sanderjenk/echo-job
+      restartPolicy: Never
+  backoffLimit: 4
