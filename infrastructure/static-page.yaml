@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: static-website
-        image: sanderjenk/static-website:1.0
+        image: sanderjenk/static-website
         ports:
         - containerPort: 80
 ---
