@@ -1,12 +1,12 @@
 apiVersion: batch/v1
-kind: Job
+kind: CronJob
 metadata:
   name: date-printer
 spec:
-  template:
+  schedule: "* * * * *"
+  jobTemplate:
     spec:
       containers:
       - name: date-printer
         image: sanderjenk/echo-job:1.1
       restartPolicy: Never
-  backoffLimit: 4
